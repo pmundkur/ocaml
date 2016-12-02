@@ -698,6 +698,8 @@ if test $with_sharedlibs = "yes"; then
       mksharedlib="$flexlink"
       mkmaindll="$flexlink -maindll"
       shared_libraries_supported=true;;
+    *-genode-*)
+      shared_libraries_supported=false;;
     *-*-linux-gnu|*-*-linux|*-*-freebsd[3-9]*|*-*-freebsd[1-9][0-9]*\
     |*-*-openbsd*|*-*-netbsd*|*-*-gnu*|*-*-haiku*)
       sharedcccompopts="-fPIC"
