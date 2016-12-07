@@ -27,7 +27,7 @@ OBJS= closure.$(O) error.$(O) lalr.$(O) lr0.$(O) main.$(O) \
 all: ocamlyacc$(EXE)
 
 ocamlyacc$(EXE): $(OBJS)
-	$(MKEXE) -o ocamlyacc$(EXE) $(OBJS) $(EXTRALIBS)
+	$(MKEXE) -o ocamlyacc$(EXE) $(OBJS) $(EXTRALIBS) $(BYTECCLIBS) $(LDFLAGS)
 
 version.h : ../VERSION
 	echo "#define OCAML_VERSION \"`sed -e 1q ../VERSION`\"" >version.h

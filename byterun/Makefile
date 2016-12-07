@@ -28,14 +28,14 @@ all:: all-$(SHARED)
 
 ocamlrun$(EXE): libcamlrun.a prims.o
 	$(MKEXE) $(BYTECCLINKOPTS) -o ocamlrun$(EXE) \
-		  prims.o libcamlrun.a $(BYTECCLIBS)
+		  $(BYTECCLIBS) prims.o libcamlrun.a
 
 ocamlrund$(EXE): libcamlrund.a prims.o
 	$(MKEXE) $(MKEXEDEBUGFLAG) $(BYTECCLINKOPTS) -o ocamlrund$(EXE) \
-		  prims.o libcamlrund.a $(BYTECCLIBS)
+		  $(BYTECCLIBS) prims.o libcamlrund.a
 
 ocamlruni$(EXE): prims.o libcamlruni.a
-	$(MKEXE) $(BYTECCLINKOPTS) -o $@ $^ $(BYTECCLIBS)
+	$(MKEXE) $(BYTECCLINKOPTS) -o $@ $(BYTECCLIBS) $^
 
 libcamlrun.a: $(OBJS)
 	$(ARCMD) rc libcamlrun.a $(OBJS)
